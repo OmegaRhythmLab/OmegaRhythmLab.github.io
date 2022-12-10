@@ -103,6 +103,10 @@ function createLi(BGI,Title,Author,Empty){//在Main_Part创建Li
             localStorage.setItem("NewsIndex",AllNames.indexOf(Title));
             location.href = "ShowNews.html"
         }
+
+        if(Empty){
+            ListObject.onclick = null;
+        }
     }
 }
 
