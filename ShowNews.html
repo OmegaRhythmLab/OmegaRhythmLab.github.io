@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻 | Omega!</title>
+    <link rel="stylesheet" href="Css/header.css">
+    <link rel="stylesheet" href="Css/reset.css">
+    <script src="Js/order.js"></script>
+    <style>
+        @media screen and (min-width:1050px) {
+            .wrap{
+                width:1000px;
+            }
+            .headImage{
+                height: 55vh;
+            }
+        }
+        
+        @media screen and (min-width:960px) and (max-width:1049px){
+            .wrap{
+                width:95vw;
+            }
+            .headImage{
+                height: 55vh;
+            }
+        }
+        
+        @media screen and (max-width:959px) {
+            .wrap{
+                width:95vw;
+            }
+            .headImage{
+                height: 30vh;
+            }
+        }
+        .wrap{
+            margin:30px auto;
+        }
+        .title{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .title h1,.title h6{
+            color:#fff;
+            display: inline-block;
+        }
+        .headImage{
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 5px;
+            background-size: cover;
+            background-position: center;
+        }
+        .text{
+            color:#fff;
+            margin-top: 20px;
+            width: 100%;
+            word-break: break-all;
+        }
+        .NewsTime{
+            margin-top:100px;
+            width: 100%;
+            color: #fff;
+            display: flex;
+            justify-content: flex-end;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="nav_left"></div>
+        <ul class="nav_right">
+            <li class="nav_right_1" onclick="location.href = 'news.html'">返回</li>
+            <li class="nav_right_last" onclick="location.href = 'news.html'"><p>返回</p></li>
+        </ul>
+    </div>
+    <div class="wrap">
+        <div class="title">
+            <h1></h1>
+            <h6></h6>
+        </div>
+        <div class="headImage"></div>
+        <div class="text"></div>
+        <div class="NewsTime"></div>
+    </div>
+    <script>
+        var Newsindex = localStorage.getItem("NewsIndex");
+
+        //控制文字信息
+        var TitleText = document.querySelector(".title h1"),
+            AuthorText = document.querySelector(".title h6"),
+            InnerTime = document.querySelector(".NewsTime"),
+            InnerText = document.querySelector(".text");
+
+        TitleText.innerHTML = AllNames[Newsindex];
+        AuthorText.innerHTML = "作者：" + AllAuthors[Newsindex];
+        InnerText.innerHTML = AllContents[Newsindex];
+
+        var thistime = AllTimes[Newsindex].toString();
+        InnerTime.innerHTML = thistime.substring(0,4) + "年"+ thistime.substring(4,6) + "月" + thistime.substring(6,8) + "日";
+
+        //控制图片
+        var headImage = document.querySelector(".headImage");
+
+        headImage.style.backgroundImage = "url(Js/News/Img/" + AllTitles[Newsindex] + ".png)";
+    </script>
+</body>
+</html>

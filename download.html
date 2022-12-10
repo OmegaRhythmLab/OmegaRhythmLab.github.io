@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>下载 | Omega!</title>
+    <link rel="stylesheet" href="Css/header.css">
+    <link rel="stylesheet" href="Css/reset.css">
+    <style>
+        @media screen and (min-width:960px){
+            .carousel{
+                display: flex;
+                position: absolute;
+                justify-content: space-between;
+                left:50%;
+                top:50px;
+                transform: translateX(-50%);
+                margin:0;
+                padding: 0;
+                width: 200px;
+                height:15px;
+            }
+            .carousel li{
+                width: 15px;
+                height:15px;
+            }
+            .n_carousel{
+                border:1px solid #ccc;
+                transform: rotateZ(45deg);
+            }
+            .y_carousel{
+                transform: scale(2.1);
+                background-image: url(Css/Img/block.png);
+                background-size: cover;
+            }
+            .show_image{
+                position: absolute;
+                top:20%;
+                left:50%;
+                transform: translateX(-50%);
+                width: 585px;
+                height: 317px;;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                box-shadow: 0 0 70px RGB(0,255,253);
+                background-image: url(Css/Img/GameImage0.png);
+            }
+            .bgborder{
+                position: absolute;
+                width: 130%;
+                height:150%;
+                left:50%;
+                transform: translate(-50%,-50%);
+                top:50%;
+                background-image: url(Css/Img/Showborder.png);
+                background-size: 100% 100%;
+                z-index: -1;
+            }
+            .GameView{
+                position: absolute;
+                left:50%;
+                transform: translateX(-50%);
+                top:75%;
+                color:#fff;
+                font-size: 20px;
+            }
+            .logo{
+                width: 100px;
+                height: 120px;
+                position: absolute;
+                right:30px;
+                bottom: 30px;
+                background-image: url(Css/Img/ESstudio.png);
+                background-size: cover;
+                background-position: center;
+            }
+            .leftimage,.rightimage{
+                display: inline-block;
+                height:100%;
+                width:49.6%;
+            }
+            .game_show{
+                position: absolute;
+                right:0;
+                height:100%;
+                width: 60%;
+            }
+            .way_to_download{
+                position: absolute;
+            }
+            .download{
+                display: flex;
+                position: absolute;
+                left:50%;
+                transform: translateX(-50%);
+                bottom: 10%;
+                width:55%;
+                height: 300px;
+                padding:0;
+                color:#fff;
+                font-size:20px;
+                justify-content: space-around;
+                flex-direction: column-reverse;
+            }
+            .support{
+                display: none;
+            }
+        }
+        @media screen and (max-width:959px){
+            .game_show{
+                display: none;
+            }
+            .download{
+                display: none;
+            }
+            .support{
+                color:#fff;
+                font-size: 20px;
+                text-shadow: 1px 1px 6px #fff;
+                position: absolute;
+                top:70%;
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+            }
+            .support::before{
+                content: "";
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                top:-130%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-image: url(Css/Img/block.png);
+                background-size: cover;
+            }
+        }
+        html,body{
+            height: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url(Css/Img/bgi.png);
+        }
+        .wrap{
+            position: relative;
+            width: 90%;
+            height:80%;
+            margin: 50px auto;
+        }
+        .way_to_download{
+            left:0;
+            height:100%;
+            width: 40%;
+        }
+        .d_title{
+            position: absolute;
+            top:10%;
+            left:50%;
+            transform: translateX(-50%);
+            width: 240px;
+            height: 75px;
+            background-image: url(Css/Img/OMEGA.png);
+            background-size: cover;
+        }
+        .d_sub_title,.eng_title{
+            position:absolute;
+            left:50%;
+            transform: translateX(-50%);
+            white-space:nowrap;
+        }
+        .d_sub_title{
+            top:23%;
+            font-size: 30px;
+            color:white;
+        }
+        .eng_title{
+            top:29%;
+            font-size: 20px;
+            color:RGB(220,220,220);
+        }
+        .win svg,.mac svg,.win p,.mac p{
+            position: absolute;
+            left:50%;
+            white-space:nowrap;
+        }
+        .win p,.mac p{
+            transform: translateX(-50%);
+        }
+        .win svg,.mac svg{
+            transform: translate(-50%,-50px);
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="nav_left"></div>
+        <ul class="nav_right">
+            <li class="nav_right_1" onclick="location.href='index.html'">主页</li>
+            <li class="nav_right_2">下载</li>
+            <li class="nav_right_3" onclick="location.href='news.html'">新闻</li>
+            <li class="nav_right_4" onclick="location.href='About.html'">关于</li>
+            <li class="nav_right_5" onclick="location.href='About.html'">制作成员</li>
+            <li class="nav_right_last" onclick="navappear()"><p>展开</p></li>
+        </ul>
+    </div>
+    <ul class="hid">
+        <li class="more_nav_1" onclick="location.href='index.html'">主页</li>
+        <li class="more_nav_2" onclick="location.href='download.html'">下载</li>
+        <li class="more_nav_3" onclick="location.href='news.html'">新闻</li>
+        <li class="more_nav_4" onclick="location.href='About.html'">关于</li>
+        <li class="more_nav_5" onclick="location.href='About.html'">制作成员</li>
+    </ul>
+    <div class="wrap">
+        <div class="way_to_download">
+            <div class="d_title"></div>
+            <p class="d_sub_title"> / 游 / 戏 / 下 / 载 / 提 / 供 / </p>
+            <p class="eng_title">GAME DOWNLOAD</p>
+            <p class="support">请前往PC端进行下载</p>
+            <ul class="download">
+                <li class="win">
+                    <svg t="1669772594121" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3838" width="40" height="40"><path d="M430.59456 494.1504 430.59456 81.93536 7.04 141.18528 7.04 494.1504Z" p-id="3839" fill="#ffffff"></path><path d="M465.88672 494.1504 1016.32 494.1504 1016.32 0 465.88672 77.00864Z" p-id="3840" fill="#ffffff"></path><path d="M430.59456 529.44256 7.04 529.44256 7.04 882.41152 430.59456 941.664Z" p-id="3841" fill="#ffffff"></path><path d="M465.88672 529.44256 465.88672 946.59072 1016.32 1023.59168 1016.32 529.44256Z" p-id="3842" fill="#ffffff"></path></svg>
+                    <p>Windows7/10/11-DOWNLOAD</p>
+                </li>
+                <li class="mac">
+                    <svg t="1669772647409" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4965" width="40" height="40"><path d="M849.124134 704.896288c-1.040702 3.157923-17.300015 59.872622-57.250912 118.190843-34.577516 50.305733-70.331835 101.018741-126.801964 101.909018-55.532781 0.976234-73.303516-33.134655-136.707568-33.134655-63.323211 0-83.23061 32.244378-135.712915 34.110889-54.254671 2.220574-96.003518-54.951543-130.712017-105.011682-70.934562-102.549607-125.552507-290.600541-52.30118-416.625816 36.040844-63.055105 100.821243-103.135962 171.364903-104.230899 53.160757-1.004887 103.739712 36.012192 136.028093 36.012192 33.171494 0 94.357018-44.791136 158.90615-38.089503 27.02654 1.151219 102.622262 11.298324 151.328567 81.891102-3.832282 2.607384-90.452081 53.724599-89.487104 157.76107C739.079832 663.275355 847.952448 704.467523 849.124134 704.896288M633.69669 230.749408c29.107945-35.506678 48.235584-84.314291 43.202964-132.785236-41.560558 1.630127-92.196819 27.600615-122.291231 62.896492-26.609031 30.794353-50.062186 80.362282-43.521213 128.270409C557.264926 291.935955 604.745311 264.949324 633.69669 230.749408" p-id="4966" fill="#ffffff"></path></svg>
+                    <p>MacOS-DOWNLOAD</p>
+                </li>
+            </ul>
+        </div>
+        <div class="game_show">
+            <ul class="carousel">
+                <li class="y_carousel"></li>
+                <li class="n_carousel"></li>
+                <li class="n_carousel"></li>
+                <li class="n_carousel"></li>
+            </ul>
+            <div class="show_image">
+                <div class="bgborder"></div>
+                <div class="leftimage" onclick="Toleft()"></div>
+                <div class="rightimage" onclick="Toright()"></div>
+            </div>
+            <p class="GameView">-游戏预览-</p>
+        </div>
+    </div>
+    <!-- <div class="logo"></div> -->
+    <script>
+        //控制手机端nav的展开与收起
+        var hid = document.querySelector(".hid");
+        var show = document.querySelector(".nav_right_last p");
+        var isappear = false;
+        function navappear(){
+            if(!isappear){
+                hid.style.display = "block";
+                isappear = !isappear;
+                show.innerHTML = "收起";
+            } 
+            else{
+                hid.style.display = "none";
+                isappear = !isappear;
+                show.innerHTML = "展开";
+            } 
+        }
+        //轮播图
+        var l_order = 0;
+
+        var AllCarouselList = document.querySelectorAll(".carousel li"),
+            ShowImage = document.querySelector(".show_image"),
+            LeftCarousel = document.querySelector(".leftimage"),
+            RightCarousel = document.querySelector(".rightimage");
+
+        var TimeFunc = setInterval(()=>ChangeImage(true),10000);
+
+        var Toleft = () => ChangeImage(false),
+            Toright = () => ChangeImage(true);
+
+        var ChangeImage = direction => {
+            AllCarouselList[l_order].className = "n_carousel";
+            if(!direction){//左
+                l_order--;
+                l_order < 0 ? l_order = 3: l_order = l_order;
+            }
+            else//右
+            {
+                l_order++;
+                l_order %= 4;
+            }
+            ShowImage.style.backgroundImage = "url(Css/Img/GameImage" + l_order + ".png)";
+            AllCarouselList[l_order].className = "y_carousel";
+        }
+
+    </script>
+</body>
+</html>
