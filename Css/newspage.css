@@ -1,0 +1,127 @@
+@media screen and (min-width:960px) {
+    .wrap{
+        width:1000px;
+    }
+}
+
+@media screen and (max-width:959px) {
+    .wrap{
+        width:95vw;
+    }
+}
+
+.Main_Part{
+    padding: 0;
+    margin: 0;
+}
+.News_Title{
+    width: 950px;
+    margin: -10px auto;
+}
+.News_Title h2{
+    color:#fff;
+    filter: blur(0.5px);
+}
+.Main_Part li{
+    width: 650px;
+    height: 300px;
+    margin:10px;
+    border-radius: 6px;
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+}
+.News_wrap{
+    position: relative;
+    display: flex;
+    width: 950px;
+    background-color: RGB(60,60,60);
+    border-radius: 5px;
+    margin:10px 0;
+    justify-content: space-between;
+    left:50%;
+    transform: translateX(-50%);
+}
+.Left_Nav{
+    width:300px;
+    margin: 0;
+}
+.newsdates{
+    position: relative;
+    margin: 10px;
+    padding: 0;
+}
+.newsdates li{
+    height: 30px;
+    margin: 10px 0;
+}
+.newsdates p{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    line-height: 30px;
+    color:whitesmoke;
+}
+.newsdates p:hover{
+    color:#fff;
+}
+.newsdates p::before{
+    position: absolute;
+    display: block;
+    left:-30px;
+    top:5px;
+    width: 20px;
+    height: 20px;
+    content: "";
+    background-image: url(Img/block.png);
+    background-size: cover;
+}
+.pagenews{
+    width: 950px;
+    height: 30px;
+    margin: 0 auto;
+    background-color: RGB(20,20,20);
+}
+.morebtn{
+    margin:5px auto;
+    width: 80px;
+    height:23px;
+    border-radius: 20px;
+    background-color: #999;
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+    line-height: 23px;
+}
+.innerli{
+    width: 100%;
+    height: 40%;
+    border-radius: 0 0 5px 5px;
+    transform: translateY(150%);
+    background-color: RGBA(23,25,24,0.8);
+    color:#fff;
+}
+.innerli h4{
+    display: block;
+    font-size: 20px;
+    margin-left: 20px;
+    transform: translateY(30px);
+}
+.innerli h6{
+    display: block;
+    font-size: 10px;
+    margin-left: 20px;
+    transform: translateY(40px);
+}
+.NewsMonth0 input{
+    width:25%;
+    height:25px;
+    background-color: RGB(30,30,30);
+    border-radius: 10px;
+    color:#ddd;
+    border:1px solid #555;
+}
+.NewsMonth0{
+    display: flex;
+    justify-content: center;
+}
