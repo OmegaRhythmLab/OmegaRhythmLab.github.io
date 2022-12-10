@@ -5,7 +5,7 @@ This is OmegaRhythmLab.github.io built by 起个名真难 (and MFn)
 
 There are something important about the project:
 
-In the branch "NewsCreator" , there is a file with the name of "file.py", you can run it to fix the data in "order.js"
+there is a file in ./Js with the name of "file.py", you can run it to fix the data in "order.js"
 
 and then,I upload OmegaNewsCreator to https://github.com/Wang210106/NewsCreator
 
