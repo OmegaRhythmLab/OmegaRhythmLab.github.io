@@ -4,7 +4,7 @@
 }
 body,html{
     margin:0;
-    background-color: RGB(0,0,0);
+    background-color: #000;
     user-select: none;
     overflow-x: hidden;
 }

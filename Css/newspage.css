@@ -3,16 +3,33 @@
         width:1000px;
     }
     .Main_Part li{
-        width: 650px;
-        height: 300px;
+        width: 610px;
+        height: 250px;
+    }
+    .datetitle{
+        width: 280px;
+        height: 40px;
+    }
+    .datetitle h3,.datetitle h5{
+        margin:0;
+        color:#fff;
+        text-align: center;
+    }
+    .datetitle h5{
+        color: RGB(83,255,255);
     }
     .News_Title{
         width: 950px;
-        margin: -10px auto;
+        margin: 10px auto;
+        height: 50px;
+        background-image: url(Img/REPORT.png);
+        transform: scale(1.1);
+        background-size: cover;
+        background-position: center;
     }
     .Main_Part li{
-        width: 650px;
-        height: 300px;
+        width: 570px;
+        height: 270px;
     }
     .Left_Nav{
         width:300px;
@@ -53,17 +70,18 @@
     filter: blur(0.5px);
 }
 .Main_Part li{
-    margin:10px;
-    border-radius: 6px;
+    margin: 50px 5px;
     background-color: #fff;
     background-size: cover;
     background-position: center;
+    border-style: solid;
+    border-width: 8px 25px;
+    border-image: url(Img/rectangle.png) 30 30 fill round;
+    border-image-outset: 2 2.5;
 }
 .News_wrap{
     position: relative;
     display: flex;
-    background-color: RGB(60,60,60);
-    border-radius: 5px;
     justify-content: space-between;
     left:50%;
     transform: translateX(-50%);
@@ -118,10 +136,8 @@
 .innerli{
     width: 100%;
     height: 40%;
-    border-radius: 0 0 5px 5px;
     transform: translateY(150%);
-    background-color: RGBA(23,25,24,0.8);
-    color:#fff;
+    text-shadow: 1px 1px 5px #fff;
 }
 .innerli h4{
     display: block;
@@ -137,13 +153,14 @@
 }
 .NewsMonth0 input{
     width:25%;
-    height:25px;
-    background-color: RGB(30,30,30);
-    border-radius: 10px;
+    height:20px;
+    background-color: RGBA(0,0,0,0);
+    color:RGB(20,20,20);
+    border-radius: 15px;
     color:#ddd;
-    border:1px solid #555;
+    border:1px solid RGB(83,255,255);
 }
 .NewsMonth0{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
