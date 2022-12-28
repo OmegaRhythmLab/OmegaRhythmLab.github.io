@@ -65,19 +65,22 @@
 
         if(document.body.clientWidth > 959)
         document.addEventListener("scroll",()=>{
-            var hidtop = document.documentElement.scrollTop;
-            if(hidtop > wraptop){
-                newstitle.style.marginTop = (hidtop - wraptop + 10) + "px";
-            }
-            else{
-                newstitle.style.marginTop = 0;
-            }
+            setInterval(()=>{
+                var hidtop = document.documentElement.scrollTop;
+                if(hidtop > wraptop){
+                     newstitle.style.marginTop = (hidtop - wraptop + 10) + "px";
+                }
+                else{
+                    newstitle.style.marginTop = 0;
+                }
+            },100)
         });
+
         //控制手机端nav的展开与收起
         var hid = document.querySelector(".hid");
         var show = document.querySelector(".nav_right_last p");
         var isappear = false;
-        function navappear(){
+        var navappear = ()=>{
             if(!isappear){
                 hid.style.display = "block";
                 isappear = !isappear;

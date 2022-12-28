@@ -3,7 +3,7 @@ var Year = document.querySelector(".Year"),
     Month = document.querySelector(".Month"),
     Days = document.querySelector(".Day"),
     TimeNews = [],//符合要求的新闻
-    NewsAmount = 4;//显示新闻的数量
+    NewsAmount = 4;//首页显示新闻的数量
 
 var TimeColumnText = document.querySelectorAll(".newsdates li p");
 var Dates = new Date();
@@ -44,7 +44,7 @@ var inputing = () =>{
         if(!Year.value && !Month.value && !Days.value){//输入的内容都被删干净辣(
             TimeNews = TimeOrder;
         }   
-        else{
+        else{//输入的内容真有问题
             createLi("Js/News/Img/illegal.png","","",true);
             return;
         }
@@ -54,13 +54,13 @@ var inputing = () =>{
         createLi("Js/News/Img/empty.png","","",true);
     }
     else{//正常输出
-        if(NewsAmount >= TimeNews.length){
+        if(NewsAmount >= TimeNews.length){//新闻够用
             for(var i = 0;i < TimeNews.length;i++){
                 var index = TimeNews[i];
                 createLi("Js/News/Img/" + AllTitles[index] + ".png",AllNames[index],AllAuthors[index],false);
             }
         }
-        else{
+        else{//新闻不够辣
             for(var i = 0;i < NewsAmount;i++){
                 var index = TimeNews[i];
                 createLi("Js/News/Img/" + AllTitles[index] + ".png",AllNames[index],AllAuthors[index],false);
@@ -70,6 +70,7 @@ var inputing = () =>{
     }
 }
 
+//显示更多新闻
 MoreBtn.onclick = ()=>{
     NewsAmount += 3;
     inputing();
@@ -92,7 +93,7 @@ function createLi(BGI,Title,Author,Empty){//在Main_Part创建Li
         var innerh6 = document.createElement("h6");
         
         innerh4.innerHTML = Title;
-        innerh6.innerHTML = "作者：" + Author;
+        innerh6.innerHTML = !Empty ? ("作者：" + Author) : Author;
 
         innerli.appendChild(innerh4);
         innerli.appendChild(innerh6);
@@ -109,5 +110,6 @@ function createLi(BGI,Title,Author,Empty){//在Main_Part创建Li
     }
 }
 
+//把展开按钮放在最后
 MoreBtn.remove();
-MainPart.appendChild(MoreBtn);//把展开按钮放在最后
+MainPart.appendChild(MoreBtn);
