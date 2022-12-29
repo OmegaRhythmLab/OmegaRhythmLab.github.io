@@ -54,7 +54,7 @@
         height: 180px;
         border-image-outset: 4.3 2.3;
     }
-    .News_Title,.Left_Nav{
+    .Left_Nav{
         display: none;
     }
     .News_wrap{
