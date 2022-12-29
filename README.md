@@ -1,16 +1,13 @@
 # OmegaRhythmLab.github.io
-Omega Website
 
-This is OmegaRhythmLab.github.io built by 起个名真难 (and MFn)
+Welcome to the Omega Website at OmegaRhythmLab.github.io, built by 起个名真难 and MFn.
 
-There are something important about the project:
+There are some important things to know about the project:
 
-there is a file in ./Js with the name of "file.py", you can run it to fix the data in "order.js"
+* There is a file in the "Js" folder called "file.py" that can be run to fix the data in "order.js".
 
-and then,I upload OmegaNewsCreator to https://github.com/Wang210106/NewsCreator
+* The project "OmegaNewsCreator" has been uploaded to https://github.com/Wang210106/NewsCreator.
 
-I will fix bugs in the project in the near future (雾
+* We will be working on fixing any bugs in the project in the near future.
 
-There is still something that is not completed
-
-So,I'll try completing it in my spare time
+Please note that there are still some unfinished aspects of the project. We will try to complete them in our spare time.
