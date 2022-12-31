@@ -14,11 +14,10 @@ import {
     Toolbar,
     Typography,
     Stack,
-    SxProps,
-    useTheme,
-    useMediaQuery, Box
+    SxProps
 } from '@mui/material'
-import HomePage from './HomePage'
+import HomePage from './Page/Home'
+import AboutPage from './Page/About'
 
 enum TabItem {
     Home,
@@ -26,31 +25,15 @@ enum TabItem {
     About
 }
 
-interface ContentProps {
-    tabItem: TabItem,
-    sx?: SxProps
-}
-
-function Content(props: ContentProps) {
-    const screenWidthUpMdQuery = useTheme().breakpoints.up("md")
-    const isScreenWidthUpMd = useMediaQuery(screenWidthUpMdQuery)
-    let contentComponent: JSX.Element
-
+function Content(props: { tabItem: TabItem, sx?: SxProps }) {
     switch (props.tabItem) {
         case TabItem.Download:
-            contentComponent = <></>
-            break
+            return <></>
         case TabItem.About:
-            contentComponent = <></>
-            break
+            return <AboutPage sx={{alignSelf: "center"}}/>
         case TabItem.Home:
-            contentComponent = (
-                <HomePage screenWidthUpMdQuery={screenWidthUpMdQuery} screenWidthUpMd={isScreenWidthUpMd}/>
-            )
-            break
+            return <HomePage sx={{alignSelf: "center"}}/>
     }
-
-    return (<Box sx={props.sx}>{contentComponent}</Box>)
 }
 
 function App() {
@@ -77,7 +60,7 @@ function App() {
             </AppBar>
 
             <Toolbar/>
-            <Content tabItem={tabItem} sx={{alignSelf: "center"}}/>
+            <Content tabItem={tabItem} sx={{width: "100%"}}/>
         </Stack>
     );
 }

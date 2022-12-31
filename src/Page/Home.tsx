@@ -1,5 +1,16 @@
-import {Button, Card, CardContent, CardMedia, Container, Stack, SxProps, Typography} from '@mui/material'
-import imageUrl from './image/cover.jpg'
+import {
+    Button,
+    Card,
+    CardContent,
+    CardMedia,
+    Container,
+    Stack,
+    SxProps,
+    Typography,
+    useMediaQuery,
+    useTheme
+} from '@mui/material'
+import imageUrl from '../image/cover.jpg'
 import React from 'react'
 
 interface News {
@@ -41,23 +52,27 @@ for (let i = 0; i < 20; i++) {
     news.push(new MediumSizedNews("此处应有标题", imageUrl, "此处应有作者", "此处应有简介"));
 }
 
-export default function HomePage(props: { sx?: SxProps, screenWidthUpMdQuery: string, screenWidthUpMd: boolean }) {
+export default function HomePage(props: { sx?: SxProps}) {
+    const screenWidthUpMdQuery = useTheme().breakpoints.up("md")
+    const isScreenWidthUpMd = useMediaQuery(screenWidthUpMdQuery)
+
     return <Container maxWidth="lg" sx={props.sx}>
         <Stack spacing={2}>
             <Card sx={{position: 'relative'}}>
                 <CardMedia component="img" image={imageUrl} title="封面图片"/>
                 <CardContent
-                    sx={{[props.screenWidthUpMdQuery]: {position: 'absolute', left: 0, top: 0, padding: 8}}}>
-                    <Typography variant={props.screenWidthUpMd ? 'h3' : 'h4'} component="div" gutterBottom>
+                    sx={{[screenWidthUpMdQuery]: {position: 'absolute', left: 0, top: 0, padding: 8}}}>
+                    <Typography variant={isScreenWidthUpMd ? 'h3' : 'h4'} component="div">
                         恶化脑裂病情的最佳方式
                     </Typography>
-                    <Button variant="contained" sx={{alignSelf: 'start', paddingLeft: 8, paddingRight: 8}}>
+                    <Typography variant="subtitle1" gutterBottom>双面下落的4K玩法,给你不一样的游戏体验</Typography>
+                    <Button variant="contained" sx={{alignSelf: 'start', paddingLeft: 8, paddingRight: 8, marginTop: 4}} fullWidth={!isScreenWidthUpMd}>
                         下载
                     </Button>
                 </CardContent>
             </Card>
 
-            <Stack sx={{flexWrap: 'wrap', flexDirection: 'row'}}>{news.map((value) => {
+            <Stack sx={{flexWrap: 'wrap'}} direction="row">{news.map((value) => {
                 function flexGrow() {
                     if (value instanceof MediumSizedNews) {
                         return 2
