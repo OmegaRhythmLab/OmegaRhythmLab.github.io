@@ -149,6 +149,10 @@
     font-size: 15px;
     color: #fff;
 }
+.download:hover{
+    background-color: RGB(47,95,170);
+    transition: 1s;
+}
 .news{
     position: relative;
     margin:20px auto 0 auto;

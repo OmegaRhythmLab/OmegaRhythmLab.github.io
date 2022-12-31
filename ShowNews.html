@@ -72,21 +72,24 @@
     </style>
 </head>
 <body>
-    <div class="nav">
-        <div class="nav_left" onclick="location.href='index.html'"></div>
-        <ul class="nav_right">
-            <li class="nav_right_1" onclick="location.href = 'news.html'">返回</li>
-            <li class="nav_right_last" onclick="location.href = 'news.html'"><p>返回</p></li>
-        </ul>
-    </div>
-    <div class="wrap">
-        <div class="title">
-            <h1></h1>
-            <h6></h6>
+    <div class="waiting"></div>
+    <div class="container">
+        <div class="nav">
+            <div class="nav_left" onclick="location.href='index.html'"></div>
+            <ul class="nav_right">
+                <li class="nav_right_1" onclick="location.href = 'news.html'">返回</li>
+                <li class="nav_right_last" onclick="location.href = 'news.html'"><p>返回</p></li>
+            </ul>
         </div>
-        <div class="headImage"></div>
-        <div class="text"></div>
-        <div class="NewsTime"></div>
+        <div class="wrap">
+            <div class="title">
+                <h1></h1>
+                <h6></h6>
+            </div>
+            <div class="headImage"></div>
+            <div class="text"></div>
+            <div class="NewsTime"></div>
+        </div>
     </div>
     <script>
         var Newsindex = localStorage.getItem("NewsIndex");
@@ -109,5 +112,6 @@
 
         headImage.style.backgroundImage = "url(Js/News/Img/" + AllTitles[Newsindex] + ".png)";
     </script>
+    <script src="Js/index.js"></script>
 </body>
 </html>

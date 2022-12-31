@@ -12,58 +12,44 @@
     <script src="Js/order.js"></script>
 </head>
 <body>
-    <div class="nav">
-        <div class="nav_left"></div>
-        <ul class="nav_right">
-            <li class="nav_right_1" onclick="location.href='index.html'">主页</li>
-            <li class="nav_right_2" onclick="location.href='download.html'">下载</li>
-            <li class="nav_right_3" onclick="location.href='news.html'">新闻</li>
-            <li class="nav_right_4" onclick="location.href='About.html'">关于</li>
-            <li class="nav_right_5" onclick="location.href='About.html'">制作成员</li>
-            <li class="nav_right_last" onclick="navappear()">
-                <p>展开</p>
-            </li>
+    <div class="waiting"></div>
+    <div class="container">
+        <div class="nav">
+            <div class="nav_left"></div>
+            <ul class="nav_right">
+                <li class="nav_right_1" onclick="location.href='index.html'">主页</li>
+                <li class="nav_right_2" onclick="location.href='download.html'">下载</li>
+                <li class="nav_right_3" onclick="location.href='news.html'">新闻</li>
+                <li class="nav_right_4" onclick="location.href='About.html'">关于</li>
+                <li class="nav_right_5" onclick="location.href='About.html'">制作成员</li>
+                <li class="nav_right_last" onclick="navappear()">
+                    <p>展开</p>
+                </li>
+            </ul>
+        </div>
+        <ul class="hid">
+            <li class="more_nav_1" onclick="location.href='index.html'">主页</li>
+            <li class="more_nav_2" onclick="location.href='download.html'">下载</li>
+            <li class="more_nav_3" onclick="location.href='news.html'">新闻</li>
+            <li class="more_nav_4" onclick="location.href='About.html'">关于</li>
+            <li class="more_nav_5" onclick="location.href='About.html'">制作成员</li>
         </ul>
-    </div>
-    <ul class="hid">
-        <li class="more_nav_1" onclick="location.href='index.html'">主页</li>
-        <li class="more_nav_2" onclick="location.href='download.html'">下载</li>
-        <li class="more_nav_3" onclick="location.href='news.html'">新闻</li>
-        <li class="more_nav_4" onclick="location.href='About.html'">关于</li>
-        <li class="more_nav_5" onclick="location.href='About.html'">制作成员</li>
-    </ul>
-    <div class="bodypart">
-        <div class="text">
-            <h1>恶化脑裂病情的最佳方式</h1>
-            <h6>双面下落的4K玩法,给你不一样的游戏体验</h6>
-            <div class="download" onclick="location.href='download.html'"><p>我要下载！</p></div>
+        <div class="bodypart">
+            <div class="text">
+                <h1>恶化脑裂病情的最佳方式</h1>
+                <h6>双面下落的4K玩法,给你不一样的游戏体验</h6>
+                <div class="download" onclick="location.href='download.html'"><p>我要下载！</p></div>
+            </div>
+            <div class="news">
+                <div class="news_main" onclick="ToNewsPage(0)"><div class="inner_news"><h4>测试新闻测试新闻测试新闻</h4><h6>作者:起名真难</h6></div></div>
+                <div class="news2" onclick="ToNewsPage(1)"><div class="inner_news"><h4>测试新闻测试新闻测试新闻</h4><h6>作者:起名真难</h6></div></div>
+                <div class="news3" onclick="ToNewsPage(2)"><div class="inner_news"><h4>测试新闻测试新闻测试新闻</h4><h6>作者:起名真难</h6></div></div>
+                <div class="more_news" onclick="location.href='news.html'"><p>更多新闻...</p></div>
+            </div>
         </div>
-        <div class="news">
-            <div class="news_main" onclick="ToNewsPage(0)"><div class="inner_news"><h4>测试新闻测试新闻测试新闻</h4><h6>作者:起名真难</h6></div></div>
-            <div class="news2" onclick="ToNewsPage(1)"><div class="inner_news"><h4>测试新闻测试新闻测试新闻</h4><h6>作者:起名真难</h6></div></div>
-            <div class="news3" onclick="ToNewsPage(2)"><div class="inner_news"><h4>测试新闻测试新闻测试新闻</h4><h6>作者:起名真难</h6></div></div>
-            <div class="more_news" onclick="location.href='news.html'"><p>更多新闻...</p></div>
-        </div>
+        <div class="footer"></div>
     </div>
-    <div class="footer"></div>
     <script>
-        //控制手机端nav的展开与收起
-        var hid = document.querySelector(".hid");
-        var show = document.querySelector(".nav_right_last p");
-        var isappear = false;
-        function navappear(){
-            if(!isappear){
-                hid.style.display = "block";
-                isappear = !isappear;
-                show.innerHTML = "收起";
-            } 
-            else{
-                hid.style.display = "none";
-                isappear = !isappear;
-                show.innerHTML = "展开";
-            } 
-        }
-
         //控制主页三个新闻页
         var news = document.querySelectorAll(".news div");
         var newstitles = document.querySelectorAll(".news div h4");
@@ -81,5 +67,6 @@
             location.href = "ShowNews.html";
         }
     </script>
+    <script src="Js/index.js"></script>
 </body>
 </html>

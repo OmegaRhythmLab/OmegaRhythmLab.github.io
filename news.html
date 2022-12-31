@@ -12,87 +12,73 @@
     <script src="Js/order.js"></script>
 </head>
 <body>
-    <div class="nav">
-        <div class="nav_left" onclick="location.href='index.html'"></div>
-        <ul class="nav_right">
-            <li class="nav_right_1" onclick="location.href='index.html'">主页</li>
-            <li class="nav_right_2" onclick="location.href='download.html'">下载</li>
-            <li class="nav_right_3" onclick="location.href='news.html'">新闻</li>
-            <li class="nav_right_4" onclick="location.href='About.html'">关于</li>
-            <li class="nav_right_5" onclick="location.href='About.html'">制作成员</li>
-            <li class="nav_right_last" onclick="navappear()">
-                <p>展开</p>
-            </li>
-        </ul>
-    </div>
-    <ul class="hid">
-        <li class="more_nav_1" onclick="location.href='index.html'">主页</li>
-        <li class="more_nav_2" onclick="location.href='download.html'">下载</li>
-        <li class="more_nav_3" onclick="location.href='news.html'">新闻</li>
-        <li class="more_nav_4" onclick="location.href='About.html'">关于</li>
-        <li class="more_nav_5" onclick="location.href='About.html'">制作成员</li>
-    </ul>
-    <div class="News_Title"></div>
-    <div class="News_wrap">
-        <div class="Left_Nav">
-            <div class="datetitle">
-                <h5>DATE</h5>
-                <h3>日期</h3>
-            </div>
-            <ul class="newsdates">
-                <li class="NewsMonth0">
-                    <input type="text" class="Year" placeholder="年" oninput="inputing()">
-                    <input type="text" class="Month" placeholder="月" oninput="inputing()">
-                    <input type="text" class="Day" placeholder="日" oninput="inputing()">
+    <div class="waiting"></div>
+    <div class="container">
+        <div class="nav">
+            <div class="nav_left" onclick="location.href='index.html'"></div>
+            <ul class="nav_right">
+                <li class="nav_right_1" onclick="location.href='index.html'">主页</li>
+                <li class="nav_right_2" onclick="location.href='download.html'">下载</li>
+                <li class="nav_right_3" onclick="location.href='news.html'">新闻</li>
+                <li class="nav_right_4" onclick="location.href='About.html'">关于</li>
+                <li class="nav_right_5" onclick="location.href='About.html'">制作成员</li>
+                <li class="nav_right_last" onclick="navappear()">
+                    <p>展开</p>
                 </li>
-                <li class="NewsMonth1" onclick="chooseMonth(0)"><p></p></li>
-                <li class="NewsMonth2" onclick="chooseMonth(1)"><p></p></li>
-                <li class="NewsMonth3" onclick="chooseMonth(2)"><p></p></li>
-                <li class="NewsMonth4" onclick="chooseMonth(3)"><p></p></li>
-                <li class="NewsMonth5" onclick="chooseMonth(4)"><p></p></li>
-                <li class="NewsMonth6" onclick="chooseMonth(5)"><p></p></li>
             </ul>
         </div>
-        <ul class="Main_Part">
-            <div class="morebtn">展开</div>
+        <ul class="hid">
+            <li class="more_nav_1" onclick="location.href='index.html'">主页</li>
+            <li class="more_nav_2" onclick="location.href='download.html'">下载</li>
+            <li class="more_nav_3" onclick="location.href='news.html'">新闻</li>
+            <li class="more_nav_4" onclick="location.href='About.html'">关于</li>
+            <li class="more_nav_5" onclick="location.href='About.html'">制作成员</li>
         </ul>
+        <div class="News_Title"></div>
+        <div class="News_wrap">
+            <div class="Left_Nav">
+                <div class="datetitle">
+                    <h5>DATE</h5>
+                    <h3>日期</h3>
+                </div>
+                <ul class="newsdates">
+                    <li class="NewsMonth0">
+                        <input type="text" class="Year" placeholder="年" oninput="inputing()">
+                        <input type="text" class="Month" placeholder="月" oninput="inputing()">
+                        <input type="text" class="Day" placeholder="日" oninput="inputing()">
+                    </li>
+                    <li class="NewsMonth1" onclick="chooseMonth(0)"><p></p></li>
+                    <li class="NewsMonth2" onclick="chooseMonth(1)"><p></p></li>
+                    <li class="NewsMonth3" onclick="chooseMonth(2)"><p></p></li>
+                    <li class="NewsMonth4" onclick="chooseMonth(3)"><p></p></li>
+                    <li class="NewsMonth5" onclick="chooseMonth(4)"><p></p></li>
+                    <li class="NewsMonth6" onclick="chooseMonth(5)"><p></p></li>
+                </ul>
+            </div>
+            <ul class="Main_Part">
+                <div class="morebtn">展开</div>
+            </ul>
+        </div>
     </div>
     <script>
         //控制时间栏固定
-        var wraptop = document.querySelector(".News_wrap").offsetTop;
-        var newsdates = document.querySelector(".newsdates"),
-            newstitle = document.querySelector(".datetitle");
+        var leftnav = document.querySelector(".Left_Nav");
+        var lasttop;
 
-        if(document.body.clientWidth > 959)
-        document.addEventListener("scroll",()=>{
-            setInterval(()=>{
+        if(document.body.clientWidth > 959){
+            document.addEventListener("scroll",()=>{
                 var hidtop = document.documentElement.scrollTop;
-                if(hidtop > wraptop){
-                     newstitle.style.marginTop = (hidtop - wraptop + 10) + "px";
+                
+                if(hidtop <= document.querySelector(".News_wrap").offsetTop){
+                    leftnav.style.marginTop = 0;
+                    return;
                 }
-                else{
-                    newstitle.style.marginTop = 0;
-                }
-            },100)
-        });
-
-        //控制手机端nav的展开与收起
-        var hid = document.querySelector(".hid");
-        var show = document.querySelector(".nav_right_last p");
-        var isappear = false;
-        var navappear = ()=>{
-            if(!isappear){
-                hid.style.display = "block";
-                isappear = !isappear;
-                show.innerHTML = "收起";
-            } 
-            else{
-                hid.style.display = "none";
-                isappear = !isappear;
-                show.innerHTML = "展开";
-            } 
+                
+                leftnav.style.marginTop = hidtop - document.querySelector(".News_wrap").offsetTop +"px";
+            });
         }
     </script>
     <script src="Js/news.js"></script>
+    <script src="Js/index.js"></script>
 </body>
 </html>

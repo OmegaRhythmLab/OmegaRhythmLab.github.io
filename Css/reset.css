@@ -2,6 +2,22 @@
     font-family: HarmonyOS Sans;
     src: url("Fonts/HarmonyOS_Sans_TC/HarmonyOS_Sans_TC_Regular.ttf");
 }
+.container{
+    height: 100%;
+    display: none;
+}
+.waiting{
+    margin:0;
+    position: relative;
+    width:300px;
+    height:200px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-image: url(Img/waitting.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 body,html{
     margin:0;
     background-color: #000;

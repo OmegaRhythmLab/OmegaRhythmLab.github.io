@@ -30,6 +30,7 @@
         border-image-outset: 6 2.8;
     }
     .Left_Nav{
+        transform: translateY(10px);
         width:300px;
         margin: 0;
     }
