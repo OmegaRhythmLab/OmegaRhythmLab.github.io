@@ -2,8 +2,6 @@
 
 import {Button, Container, Stack, useMediaQuery, useTheme} from '@mui/material'
 import omegaLargeIcon from '../image/omegaLarge.png'
-import windowsIcon from '../image/windows.svg'
-import appleIcon from '../image/apple.svg'
 import gamePreviewPicture from '../image/gamePreview.png'
 import Grid2 from '@mui/material/Unstable_Grid2'
 
@@ -17,12 +15,12 @@ export default function DownloadPage(props: { className?: string }) {
                 <img src={omegaLargeIcon} alt="logo" css={{width: "100%"}}/>
                 <Stack spacing={2}>
                     <Button variant="outlined" sx={{fontSize: 16, padding: 2}}>
-                        <object data={windowsIcon} css={{height: "2em", margin: 4}} aria-label="Windows图标"/>
+                        {/*todo 研究能改编svg颜色的方式*/}
+                        {/*<img src={windowsIcon} css={{height: "2em", margin: 4}} alt="Windows图标"/>*/}
                         Windows 7/10/11
                     </Button>
                     <Button variant="outlined" sx={{fontSize: 16, padding: 2}}>
-                        <object data={appleIcon} aria-label="Windows图标"
-                                css={{height: "2em", margin: "0 8px 8px 8px"}}/>
+                        {/*<img src={appleIcon} css={{height: "2em", margin: "0 8px 8px 8px"}} aria-label="Windows图标"/>*/}
                         MacOS
                     </Button>
                 </Stack>

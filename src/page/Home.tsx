@@ -60,7 +60,7 @@ export default function HomePage(props: { className?: string}) {
             <Card sx={{position: 'relative'}}>
                 <CardMedia component="img" image={imageUrl} title="封面图片"/>
                 <CardContent
-                    sx={{[screenWidthUpMdQuery]: {position: 'absolute', left: 0, top: 0, padding: 8}}}>
+                    sx={{[screenWidthUpMdQuery]: {position: 'absolute', left: 0, top: 0, padding: 8, color: "primary.contrastText"}}}>
                     <Typography variant={isScreenWidthUpMd ? 'h3' : 'h4'} component="div">
                         恶化脑裂病情的最佳方式
                     </Typography>

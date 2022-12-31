@@ -15,7 +15,7 @@ import {
     Toolbar,
     Typography,
     Stack,
-    Box
+    Box, createTheme, ThemeProvider
 } from '@mui/material'
 import HomePage from './page/Home'
 import AboutPage from './page/About'
@@ -49,8 +49,17 @@ function Content(props: { tabItem: TabItem, className?: string }) {
 function App() {
     const [tabItem, setTabItem] = useState(TabItem.Home)
 
+    const theme = createTheme({
+        palette: {
+            mode: "dark",
+            primary:{
+                main: "#18ffff"
+            }
+        }
+    })
+
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <CssBaseline/>
 
             <Stack spacing={2} bgcolor="background">
@@ -58,7 +67,7 @@ function App() {
                     <Toolbar>
                         <Typography variant="h6" component="div" sx={{flexGrow: 1}}>Omega</Typography>
                         <Tabs value={tabItem} onChange={(event, value) => setTabItem(value)}
-                              textColor="inherit" indicatorColor="secondary"
+                              textColor="inherit" indicatorColor="primary"
                               sx={{
                                   alignSelf: "stretch",
                                   ".MuiTabs-scroller": {"display": "flex"},
@@ -74,7 +83,7 @@ function App() {
                 <Toolbar/>
                 <Content tabItem={tabItem}/>
             </Stack>
-        </>
+        </ThemeProvider>
     );
 }
 
