@@ -1,10 +1,10 @@
-import {Container, Stack, SxProps, Typography} from '@mui/material'
+import {Container, Stack, Typography} from '@mui/material'
 import productTeam from "./productTeam.json"
 
-export default function AboutPage(props: { sx?: SxProps }) {
+export default function AboutPage(props: { className?: string }) {
 
     return (
-        <Container maxWidth={'md'} sx={props.sx}>
+        <Container maxWidth={'md'} className={props.className}>
             <Stack spacing={4}>
                 <Stack>
                     <Typography variant="h3" gutterBottom>关于</Typography>
@@ -18,6 +18,5 @@ export default function AboutPage(props: { sx?: SxProps }) {
                 </Stack>
             </Stack>
         </Container>
-
     )
 }

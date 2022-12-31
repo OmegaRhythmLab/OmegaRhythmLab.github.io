@@ -5,7 +5,6 @@ import {
     CardMedia,
     Container,
     Stack,
-    SxProps,
     Typography,
     useMediaQuery,
     useTheme
@@ -52,11 +51,11 @@ for (let i = 0; i < 20; i++) {
     news.push(new MediumSizedNews("此处应有标题", imageUrl, "此处应有作者", "此处应有简介"));
 }
 
-export default function HomePage(props: { sx?: SxProps}) {
+export default function HomePage(props: { className?: string}) {
     const screenWidthUpMdQuery = useTheme().breakpoints.up("md")
     const isScreenWidthUpMd = useMediaQuery(screenWidthUpMdQuery)
 
-    return <Container maxWidth="lg" sx={props.sx}>
+    return <Container maxWidth="md" className={props.className}>
         <Stack spacing={2}>
             <Card sx={{position: 'relative'}}>
                 <CardMedia component="img" image={imageUrl} title="封面图片"/>
