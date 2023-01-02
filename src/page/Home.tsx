@@ -3,7 +3,6 @@ import {
     Card,
     CardContent,
     CardMedia,
-    Container,
     Stack,
     Typography,
     useMediaQuery,
@@ -51,50 +50,66 @@ for (let i = 0; i < 20; i++) {
     news.push(new MediumSizedNews("此处应有标题", imageUrl, "此处应有作者", "此处应有简介"));
 }
 
-export default function HomePage(props: { className?: string}) {
+export default function HomePage() {
     const screenWidthUpMdQuery = useTheme().breakpoints.up("md")
     const isScreenWidthUpMd = useMediaQuery(screenWidthUpMdQuery)
 
-    return <Container maxWidth="md" className={props.className}>
-        <Stack spacing={2}>
-            <Card sx={{position: 'relative'}}>
+    return (
+        <>
+            <Card component="article" sx={{position: 'relative'}}>
                 <CardMedia component="img" image={imageUrl} title="封面图片"/>
                 <CardContent
-                    sx={{[screenWidthUpMdQuery]: {position: 'absolute', left: 0, top: 0, padding: 8, color: "primary.contrastText"}}}>
-                    <Typography variant={isScreenWidthUpMd ? 'h3' : 'h4'} component="div">
+                    sx={{
+                        [screenWidthUpMdQuery]: {
+                            position: 'absolute',
+                            left: 0,
+                            top: 0,
+                            padding: 8,
+                            color: "primary.contrastText"
+                        }
+                    }}>
+                    <Typography component="div" variant={isScreenWidthUpMd ? 'h3' : 'h4'}>
                         恶化脑裂病情的最佳方式
                     </Typography>
-                    <Typography variant="subtitle1" gutterBottom>双面下落的4K玩法,给你不一样的游戏体验</Typography>
-                    <Button variant="contained" sx={{alignSelf: 'start', paddingLeft: 8, paddingRight: 8, marginTop: 4}} fullWidth={!isScreenWidthUpMd}>
+                    <Typography component="div" variant="subtitle1"
+                                gutterBottom>双面下落的4K玩法,给你不一样的游戏体验</Typography>
+                    <Button variant="contained"
+                            sx={{alignSelf: 'start', paddingLeft: 8, paddingRight: 8, marginTop: 4}}
+                            fullWidth={!isScreenWidthUpMd}>
                         下载
                     </Button>
                 </CardContent>
             </Card>
 
-            <Stack sx={{flexWrap: 'wrap'}} direction="row">{news.map((value) => {
-                function flexGrow() {
-                    if (value instanceof MediumSizedNews) {
-                        return 2
-                    } else if (value instanceof LargeSizedNews) {
-                        return 3
-                    } else {
-                        throw new TypeError()
-                    }
-                }
+            <Stack sx={{marginTop: 4, flexWrap: 'wrap'}} direction="row">
+                {
+                    news.map(
+                        (value) => {
+                            function flexGrow() {
+                                if (value instanceof MediumSizedNews) {
+                                    return 2
+                                } else if (value instanceof LargeSizedNews) {
+                                    return 3
+                                } else {
+                                    throw new TypeError()
+                                }
+                            }
 
-                return (
-                    <Card sx={{flex: flexGrow(), minWidth: 300, margin: 2}}>
-                        <CardMedia component="img" image={value.coverUrl} title={value.title}/>
-                        <CardContent>
-                            <Typography gutterBottom variant="h5"
-                                        component="div">{value.title}</Typography>
-                            <Typography variant="body2"
-                                        color="text.secondary">{value.author}</Typography>
-                        </CardContent>
-                    </Card>
-                )
-            })}
+                            return (
+                                <Card component="article" sx={{flex: flexGrow(), minWidth: 300, margin: 2}}>
+                                    <CardMedia component="img" image={value.coverUrl} title={value.title}/>
+                                    <CardContent>
+                                        <Typography component="div" gutterBottom variant="h5">{value.title}</Typography>
+                                        <Typography component="div" variant="body2" color="text.secondary">
+                                            {value.author}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            )
+                        }
+                    )
+                }
             </Stack>
-        </Stack>
-    </Container>
+        </>
+    )
 }
