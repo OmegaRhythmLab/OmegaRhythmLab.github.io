@@ -1,9 +1,9 @@
-import {Stack, Typography} from '@mui/material'
+import {Box, Stack, Typography} from '@mui/material'
 import productTeam from "./productTeam.json"
 
-export default function AboutPage() {
+export default function AboutPage(props: { className?: string }) {
     return (
-        <>
+        <Box className={props.className}>
             <Typography component="h2" variant="h3" gutterBottom>关于</Typography>
             <Typography variant="body1" color="text.secondary">此处应有关于</Typography>
             <Typography sx={{marginTop: 4}} variant="h3" gutterBottom>制作人员名单</Typography>
@@ -20,6 +20,6 @@ export default function AboutPage() {
                     )
                 }
             </Stack>
-        </>
+        </Box>
     )
 }

@@ -1,4 +1,5 @@
 import {
+    Box,
     Button,
     Card,
     CardContent,
@@ -43,31 +44,22 @@ export class LargeSizedNews implements News {
     }
 }
 
-let news = new Array<News>()
-for (let i = 0; i < 20; i++) {
-    news.push(new MediumSizedNews("此处应有标题", imageUrl, "此处应有作者", "此处应有简介"));
-    news.push(new LargeSizedNews("此处应有标题", imageUrl, "此处应有作者"));
-    news.push(new MediumSizedNews("此处应有标题", imageUrl, "此处应有作者", "此处应有简介"));
-}
+export default function HomePage(props: { className?: string }) {
+    let news = new Array<News>()
+    for (let i = 0; i < 20; i++) {
+        news.push(new MediumSizedNews("此处应有标题", imageUrl, "此处应有作者", "此处应有简介"));
+        news.push(new LargeSizedNews("此处应有标题", imageUrl, "此处应有作者"));
+        news.push(new MediumSizedNews("此处应有标题", imageUrl, "此处应有作者", "此处应有简介"));
+    }
 
-export default function HomePage() {
     const screenWidthUpMdQuery = useTheme().breakpoints.up("md")
     const isScreenWidthUpMd = useMediaQuery(screenWidthUpMdQuery)
 
     return (
-        <>
-            <Card component="article" sx={{position: 'relative'}}>
+        <Box className={props.className}>
+            <Card component="article">
                 <CardMedia component="img" image={imageUrl} title="封面图片"/>
-                <CardContent
-                    sx={{
-                        [screenWidthUpMdQuery]: {
-                            position: 'absolute',
-                            left: 0,
-                            top: 0,
-                            padding: 8,
-                            color: "primary.contrastText"
-                        }
-                    }}>
+                <CardContent>
                     <Typography component="div" variant={isScreenWidthUpMd ? 'h3' : 'h4'}>
                         恶化脑裂病情的最佳方式
                     </Typography>
@@ -110,6 +102,6 @@ export default function HomePage() {
                     )
                 }
             </Stack>
-        </>
+        </Box>
     )
 }
